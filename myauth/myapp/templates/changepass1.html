@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block title %} Login {% endblock title %} 
+{% block body %}
+<form action="" method="post" novalidate>
+  {% csrf_token %}
+  {% for i in form %} {{i.label_tag}} {{i}}
+  {{i.errors|striptags}}
+  <br />
+  <br />
+  {% endfor %}
+  <input type="submit" name="" id="" value="Change Password" />
+</form>
+{% endblock body %}

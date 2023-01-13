@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block title %} Login {% endblock title %} 
+{% block body %}
+
+<form action="" method="post" novalidate>
+  {% csrf_token %}
+  <!-- Its will run when the user fill the empty value-->
+  {% if form.non_field_errors %} {% for error in form.non_field_errors %}
+  {{error}} {% endfor %} {% endif %} 
+  
+  {% for i in form %} {{i.label_tag}} {{i}}
+  {{i.errors|striptags}}
+  <br />
+  <br />
+  {% endfor %}
+  <input type="submit" name="" id="" value="Login" />
+</form>
+
+{% if messages %}
+    
+    {% for message in messages %}
+        <small {% if message.tags %} class='{{message.tags}}'{% endif %} >{{message}} </small>
+    {% endfor %}
+{% endif %}
+{% endblock body %}
