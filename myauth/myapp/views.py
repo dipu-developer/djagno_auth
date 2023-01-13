@@ -116,6 +116,7 @@ def changepass1(request):
         return HttpResponseRedirect('/login/')
 
 def user_detail(request, id):
+    
     if request.user.is_authenticated:
         pi = User.objects.get(pk=id)
         fm = EditUserProfileForm(instance= pi)
